@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
 
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
+
 if (APPLE)
 	# NOTE: You may need to pass this as a command line parameter for the Xcode generator -DCMAKE_OSX_ARCHITECTURES=i386
 	set(CMAKE_OSX_ARCHITECTURES i386)
