@@ -4,6 +4,9 @@ find_package(Threads REQUIRED)
 
 add_compile_options(
 	-m32
+	-fpermissive
+	-fdiagnostics-color
+	-Wno-narrowing
 	$<${IS_LINUX}:-U_FORTIFY_SOURCE>
 )
 
@@ -51,7 +54,7 @@ add_compile_options(
 
 list(
 	APPEND ADDITIONAL_LINK_LIBRARIES_DLL
-	"${LIBPUBLIC}/tier0${IMPLIB_EXT}"
+	tier0
 	tier1
-	"${LIBPUBLIC}/vstdlib${IMPLIB_EXT}"
+	vstdlib
 )
