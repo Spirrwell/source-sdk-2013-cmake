@@ -59,6 +59,7 @@ set(ADDITIONAL_COMPILE_DEFINITIONS_LIB)
 include("_cmake_scripts/pch_skip.cmake")
 include("_cmake_scripts/platform_dirs.cmake")
 include("_cmake_scripts/base.cmake")
+include("_cmake_scripts/video_base.cmake")
 
 set(LIBPUBLIC "${SRCDIR}/lib/public${PLATSUBDIR}")
 set(LIBCOMMON "${SRCDIR}/lib/common${PLATSUBDIR}")
