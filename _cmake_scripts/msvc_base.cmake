@@ -70,7 +70,9 @@ set(
 	/Zc:threadSafeInit-
 	/Zc:__cplusplus
 	/Zc:preprocessor
-	/permissive-
+
+	# We'll be permissive for now
+#	/permissive-
 
 	/GR # Enable Run-Time Type Information
 	/GF # Enable String Pooling
@@ -126,6 +128,7 @@ list(
 	$<$<CONFIG:Release>:${MSVC_LINK_OPTION_IGNORE_DEFAULTLIBS_RELEASE}>
 	$<$<CONFIG:Release>:/OPT:REF>
 	$<$<CONFIG:Release>:/OPT:ICF>
+	/SAFESEH:NO
 )
 
 list(
@@ -143,4 +146,9 @@ list(
 	APPEND ADDITIONAL_COMPILE_DEFINITIONS_LIB
 	_LIB
 	$<$<CONFIG:Debug>:_HAS_ITERATOR_DEBUGGING=0>
+)
+
+list(
+	APPEND ADDITIONAL_LINK_LIBRARIES_DLL
+	legacy_stdio_definitions
 )

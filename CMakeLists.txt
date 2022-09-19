@@ -61,6 +61,11 @@ include("_cmake_scripts/base.cmake")
 set(LIBPUBLIC "${SRCDIR}/lib/public${PLATSUBDIR}")
 set(LIBCOMMON "${SRCDIR}/lib/common${PLATSUBDIR}")
 
+link_directories(
+	${LIBPUBLIC}
+	${LIBCOMMON}
+)
+
 include_directories(
 	"${SRCDIR}/common"
 	"${SRCDIR}/public"

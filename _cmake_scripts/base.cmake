@@ -32,10 +32,16 @@ endif()
 
 if (${IS_WINDOWS})
 	set(_DLL_EXT ".dll")
+	set(STATIC_LIB_EXT ".lib")
+	set(IMPLIB_EXT ".lib")
 elseif (${IS_OSX})
 	set(_DLL_EXT ".dylib")
+	set(STATIC_LIB_EXT ".a")
+	set(IMPLIB_EXT ".dylib")
 elseif(${IS_LINUX})
 	set(_DLL_EXT ".so")
+	set(STATIC_LIB_EXT ".a")
+	set(IMPLIB_EXT ".so")
 endif()
 
 option(RETAIL "Build in retail mode" OFF)
@@ -43,6 +49,7 @@ option(STAGING_ONLY "Staging only" OFF)
 
 set(RAD_TELEMETRY_DISABLED ${IS_SOURCESDK})
 set(TF_BETA 0)
+set(BUILD_REPLAY 0)
 
 add_compile_definitions(
 	$<$<BOOL:${RETAIL}>:_RETAIL>
