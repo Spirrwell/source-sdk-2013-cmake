@@ -942,7 +942,11 @@ set_source_files_properties(
 
 function(target_use_server_base target EXCLUDE_SOURCES)
 	set(USED_SOURCES ${SERVER_BASE_SOURCE_FILES})
-	list(REMOVE_ITEM USED_SOURCES ${${EXCLUDE_SOURCES}})
+
+	if (${EXCLUDE_SOURCES})
+		list(REMOVE_ITEM USED_SOURCES ${${EXCLUDE_SOURCES}})
+	endif()
+
 
 	target_sources(
 		${target} PRIVATE

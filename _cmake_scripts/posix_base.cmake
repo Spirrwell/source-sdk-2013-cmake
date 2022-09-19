@@ -4,10 +4,13 @@ find_package(Threads REQUIRED)
 
 add_compile_options(
 	-m32
-	-fpermissive
+	$<$<COMPILE_LANGUAGE:CXX>:-fpermissive>
 	-fdiagnostics-color
 	-Wno-narrowing
 	$<${IS_LINUX}:-U_FORTIFY_SOURCE>
+	-Usprintf
+	-Ustrncpy
+	-UPROTECTED_THINGS_ENABLE
 )
 
 add_link_options(-m32)
