@@ -881,7 +881,7 @@ ErrorHandlerRegistrar::ErrorHandlerRegistrar()
 	_set_invalid_parameter_handler( VInvalidParameterHandler );
 }
 
-#if defined( _DEBUG )
+#if defined( _DEBUG ) && _MSC_VER < 1930
  
 // wrapper which passes no debug info; not available in debug
 #ifndef	SUPPRESS_INVALID_PARAMETER_NO_INFO
@@ -916,12 +916,21 @@ int __cdecl _CrtDbgReportW( int nRptType, const wchar_t *szFile, int nLine,
 	return 0;
 }
 
-int __cdecl _VCrtDbgReportA( int nRptType, const wchar_t * szFile, int nLine, 
-							 const wchar_t * szModule, const wchar_t * szFormat, va_list arglist )
+#if _MSC_VER >= 1900
+int __cdecl _VCrtDbgReportA( int nRptType, void* ReturnAddress, const char * szFile, int nLine,
+							 const char * szModule, const char * szFormat, va_list arglist )
 {
 	Assert(0);
 	return 0;
 }
+#else
+int __cdecl _VCrtDbgReportA( int nRptType, const wchar_t * szFile, int nLine,
+	const wchar_t * szModule, const wchar_t * szFormat, va_list arglist )
+{
+	Assert( 0 );
+	return 0;
+}
+#endif
 
 int __cdecl _CrtSetReportHook2( int mode, _CRT_REPORT_HOOK pfnNewHook )
 {
@@ -1092,6 +1101,7 @@ void __cdecl _aligned_free_dbg( void * memblock)
     _aligned_free(memblock);
 }
 
+#if _MSC_VER < 1930
 size_t __cdecl _CrtSetDebugFillThreshold( size_t _NewDebugFillThreshold)
 {
 	assert(0);
@@ -1112,6 +1122,7 @@ char * __cdecl _strdup ( const char * string )
 		memcpy( pCopy, string, nSize );
 	return pCopy;
 }
+#endif
 
 #if 0
 _TSCHAR * __cdecl _tfullpath_dbg ( _TSCHAR *UserBuf, const _TSCHAR *path, size_t maxlen, int nBlockUse, const char * szFileName, int nLine )
