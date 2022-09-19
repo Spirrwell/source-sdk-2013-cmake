@@ -25,7 +25,6 @@ set(BUILD_GROUP "game" CACHE STRING "Build Group")
 set_property(CACHE BUILD_GROUP PROPERTY STRINGS
 	"everything"
 	"game"
-	"gamedlls"
 	"shaders"
 )
 
