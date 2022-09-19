@@ -50,6 +50,7 @@ option(STAGING_ONLY "Staging only" OFF)
 set(RAD_TELEMETRY_DISABLED ${IS_SOURCESDK})
 set(TF_BETA 0)
 set(BUILD_REPLAY 0)
+set(DEDICATED 0)
 
 add_compile_definitions(
 	$<$<BOOL:${RETAIL}>:_RETAIL>
