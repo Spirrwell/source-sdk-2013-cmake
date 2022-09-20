@@ -35,6 +35,7 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 
 	include("${SRCDIR}/raytrace/raytrace.cmake")
 	include("${SRCDIR}/game/server/server_hl2mp.cmake")
+	include("${SRCDIR}/utils/serverplugin_sample/serverplugin_empty.cmake")
 	include("${SRCDIR}/tier1/tier1.cmake")
 	include("${SRCDIR}/vgui2/vgui_controls/vgui_controls.cmake")
 elseif (${BUILD_GROUP} STREQUAL "shaders")
