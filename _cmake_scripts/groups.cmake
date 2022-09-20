@@ -37,6 +37,11 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 	include("${SRCDIR}/game/server/server_hl2mp.cmake")
 	include("${SRCDIR}/utils/serverplugin_sample/serverplugin_empty.cmake")
 	include("${SRCDIR}/tier1/tier1.cmake")
+
+	if (${IS_WINDOWS})
+		include("${SRCDIR}/utils/tgadiff/tgadiff.cmake")
+	endif()
+
 	include("${SRCDIR}/vgui2/vgui_controls/vgui_controls.cmake")
 elseif (${BUILD_GROUP} STREQUAL "shaders")
 	include("${SRCDIR}/materialsystem/stdshaders/game_shader_dx9_hl2mp.cmake")
