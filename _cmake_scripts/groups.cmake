@@ -30,6 +30,7 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 
 	if (${IS_WINDOWS})
 		include("${SRCDIR}/utils/motionmapper/motionmapper.cmake")
+		include("${SRCDIR}/utils/qc_eyes/qc_eyes.cmake")
 	endif()
 
 	include("${SRCDIR}/raytrace/raytrace.cmake")
