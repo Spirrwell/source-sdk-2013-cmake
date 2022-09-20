@@ -41,6 +41,7 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 	if (${IS_WINDOWS})
 		include("${SRCDIR}/utils/tgadiff/tgadiff.cmake")
 		include("${SRCDIR}/utils/vbsp/vbsp.cmake")
+		include("${SRCDIR}/utils/vice/vice.cmake")
 	endif()
 
 	include("${SRCDIR}/vgui2/vgui_controls/vgui_controls.cmake")
