@@ -14,7 +14,17 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 	endif()
 
 	include("${SRCDIR}/game/client/client_hl2mp.cmake")
+	
+	if (${IS_WINDOWS})
+		include("${SRCDIR}/fgdlib/fgdlib.cmake")
+	endif()
+
 	include("${SRCDIR}/materialsystem/stdshaders/game_shader_dx9_hl2mp.cmake")
+
+	if (${IS_WINDOWS})
+		include("${SRCDIR}/utils/glview/glview.cmake")
+	endif()
+
 	include("${SRCDIR}/mathlib/mathlib.cmake")
 	include("${SRCDIR}/raytrace/raytrace.cmake")
 	include("${SRCDIR}/game/server/server_hl2mp.cmake")
