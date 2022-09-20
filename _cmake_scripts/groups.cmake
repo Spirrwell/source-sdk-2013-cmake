@@ -23,9 +23,15 @@ elseif (${BUILD_GROUP} STREQUAL "everything")
 
 	if (${IS_WINDOWS})
 		include("${SRCDIR}/utils/glview/glview.cmake")
+		include("${SRCDIR}/utils/height2normal/height2normal.cmake")
 	endif()
 
 	include("${SRCDIR}/mathlib/mathlib.cmake")
+
+	if (${IS_WINDOWS})
+		include("${SRCDIR}/utils/motionmapper/motionmapper.cmake")
+	endif()
+
 	include("${SRCDIR}/raytrace/raytrace.cmake")
 	include("${SRCDIR}/game/server/server_hl2mp.cmake")
 	include("${SRCDIR}/tier1/tier1.cmake")
