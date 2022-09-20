@@ -3,4 +3,5 @@
 include( "${CMAKE_CURRENT_LIST_DIR}/game_shader_dx9_base.cmake")
 
 add_library(game_shader_dx9_hl2mp MODULE)
+set_target_properties(game_shader_dx9_hl2mp PROPERTIES PREFIX "")
 target_use_game_shader_dx9_base(game_shader_dx9_hl2mp)
