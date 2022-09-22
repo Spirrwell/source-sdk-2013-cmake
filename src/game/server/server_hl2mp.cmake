@@ -277,7 +277,14 @@ set(
 )
 
 add_library(server_hl2mp MODULE ${SERVER_HL2MP_SOURCE_FILES})
-set_target_properties(server_hl2mp PROPERTIES OUTPUT_NAME "server" PREFIX "")
+
+set_target_properties(
+	server_hl2mp PROPERTIES
+	OUTPUT_NAME "server"
+	PREFIX ""
+	LIBRARY_OUTPUT_DIRECTORY "${GAMEDIR}/mod_hl2mp/bin"
+)
+
 target_use_server_base(server_hl2mp SERVER_HL2MP_EXCLUDE_SOURCES)
 
 target_include_directories(

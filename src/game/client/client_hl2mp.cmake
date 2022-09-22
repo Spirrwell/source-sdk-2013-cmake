@@ -152,7 +152,14 @@ set(
 )
 
 add_library(client_hl2mp MODULE ${CLIENT_HL2MP_SOURCE_FILES})
-set_target_properties(client_hl2mp PROPERTIES OUTPUT_NAME "client" PREFIX "")
+
+set_target_properties(
+	client_hl2mp PROPERTIES
+	OUTPUT_NAME "client"
+	PREFIX ""
+	LIBRARY_OUTPUT_DIRECTORY "${GAMEDIR}/mod_hl2mp/bin"
+)
+
 target_use_client_base(client_hl2mp CLIENT_HL2MP_EXCLUDE_SOURCES)
 
 target_include_directories(
