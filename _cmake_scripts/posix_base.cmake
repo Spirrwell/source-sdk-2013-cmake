@@ -62,3 +62,7 @@ list(
 	tier1
 	vstdlib
 )
+
+if (${IS_OSX})
+	set(CMAKE_SHARED_MODULE_SUFFIX ".dylib")
+endif()
