@@ -1192,7 +1192,6 @@ function(target_use_client_base target EXCLUDE_SOURCES)
 	target_link_libraries(
 		${target} PRIVATE
 
-		$<${IS_OSX}:iconv>
 		"$<${IS_OSX}:-framework Carbon>"
 		$<${IS_LINUX}:rt>
 		$<${IS_WINDOWS}:winmm>
@@ -1211,17 +1210,17 @@ function(target_use_client_base target EXCLUDE_SOURCES)
 		"${LIBPUBLIC}/vtf${STATIC_LIB_EXT}"
 		steam_api
 
-		"$<${IS_POSIX}:${LIBCOMMON}/libcrypto${STATIC_LIB_EXT}>"
+		#"$<${IS_POSIX}:${LIBCOMMON}/libcrypto${STATIC_LIB_EXT}>"
 
-		"$<${IS_OSX}:${LIBCOMMON}/curl${STATIC_LIB_EXT}>"
+		#"$<${IS_OSX}:${LIBCOMMON}/curl${STATIC_LIB_EXT}>"
 
-		"$<${IS_WINDOWS}:${LIBCOMMON}/libcurl${STATIC_LIB_EXT}>"
+		#"$<${IS_WINDOWS}:${LIBCOMMON}/libcurl${STATIC_LIB_EXT}>"
 		"$<$<OR:${IS_WINDOWS},${IS_LINUX}>:${LIBPUBLIC}/libz${STATIC_LIB_EXT}>"
 
-		"$<${IS_LINUX}:${LIBCOMMON}/libcurl${STATIC_LIB_EXT}>"
-		"$<${IS_LINUX}:${LIBCOMMON}/libcurlssl${STATIC_LIB_EXT}>"
+		#"$<${IS_LINUX}:${LIBCOMMON}/libcurl${STATIC_LIB_EXT}>"
+		#"$<${IS_LINUX}:${LIBCOMMON}/libcurlssl${STATIC_LIB_EXT}>"
 
-		"$<${IS_LINUX}:${LIBCOMMON}/libssl${STATIC_LIB_EXT}>"
+		#"$<${IS_LINUX}:${LIBCOMMON}/libssl${STATIC_LIB_EXT}>"
 
 	)
 endfunction()

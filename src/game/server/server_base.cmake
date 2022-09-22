@@ -983,7 +983,6 @@ function(target_use_server_base target EXCLUDE_SOURCES)
 	target_link_libraries(
 		${target} PRIVATE
 		$<${IS_WINDOWS}:winmm>
-		$<${IS_OSX}:iconv>
 
 		"${LIBPUBLIC}/choreoobjects${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/dmxloader${STATIC_LIB_EXT}"

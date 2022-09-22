@@ -55,7 +55,6 @@ function(target_use_game_shader_dx9_base target)
 	target_link_libraries(
 		${target} PRIVATE
 		"$<${IS_WINDOWS}:version;winmm>"
-		$<${IS_OSX}:iconv>
 		mathlib
 		"${LIBPUBLIC}/shaderlib${STATIC_LIB_EXT}"
 	)
