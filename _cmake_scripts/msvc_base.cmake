@@ -129,6 +129,7 @@ list(
 	$<$<CONFIG:Release>:/OPT:REF>
 	$<$<CONFIG:Release>:/OPT:ICF>
 	/SAFESEH:NO
+	/MANIFEST:NO
 )
 
 list(
