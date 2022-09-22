@@ -21,6 +21,7 @@ add_compile_definitions(
 	GNUC
 	COMPILER_GCC
 	NO_HOOK_MALLOC
+	NO_MALLOC_OVERRIDE
 	$<${IS_LINUX}:_LINUX>
 	$<${IS_LINUX}:LINUX>
 	$<${IS_OSX}:_OSX>
