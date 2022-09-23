@@ -49,6 +49,7 @@ client.dylib.dSYM/
 server.dylib
 server.dylib.dSYM/
 
+sp/game/mod_episodic/bin/*
 sp/game/mod_hl2/bin/*
 mp/game/mod_hl2mp/bin/*
 mp/game/bin/*
