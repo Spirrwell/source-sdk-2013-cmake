@@ -3,8 +3,6 @@
 // Purpose:
 //
 //=============================================================================//
-#undef strncpy // we use std::string below that needs a good strncpy define
-#undef sprintf // "
 #include "cbase.h"
 
 #include "ai_behavior_lead.h"
