@@ -142,6 +142,11 @@ set(
 
 add_executable(vbsp ${VBSP_SOURCE_FILES})
 
+set_target_properties(
+	vbsp PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	vbsp PRIVATE
 	"${SRCDIR}/utils/common"

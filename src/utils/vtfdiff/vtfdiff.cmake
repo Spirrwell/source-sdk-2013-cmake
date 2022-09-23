@@ -9,6 +9,11 @@ set(
 
 add_executable(vtfdiff ${VTFDIFF_SOURCE_FILES})
 
+set_target_properties(
+	vtfdiff PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_link_libraries(
 	vtfdiff PRIVATE
 	"${LIBPUBLIC}/bitmap${STATIC_LIB_EXT}"

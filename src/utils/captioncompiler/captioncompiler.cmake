@@ -30,6 +30,11 @@ set(
 
 add_executable(captioncompiler ${CAPTIONCOMPILER_SOURCE_FILES})
 
+set_target_properties(
+	captioncompiler PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_compile_definitions(
 	captioncompiler PRIVATE
 	captioncompiler

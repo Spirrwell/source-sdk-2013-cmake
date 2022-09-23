@@ -72,6 +72,11 @@ set(
 
 add_library(vvis_dll MODULE ${VVIS_DLL_SOURCE_FILES})
 
+set_target_properties(
+	vvis_dll PROPERTIES
+	LIBRARY_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	vvis_dll PRIVATE
 	"${SRCDIR}/utils/common"

@@ -16,6 +16,11 @@ set(
 
 add_executable(vice ${VICE_SOURCE_FILES})
 
+set_target_properties(
+	vice PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	vice PRIVATE
 	"${SRCDIR}/utils/common"

@@ -38,6 +38,11 @@ set(
 
 add_executable(qc_eyes WIN32 ${QC_EYES_SOURCE_FILES})
 
+set_target_properties(
+	qc_eyes PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_precompile_headers(
 	qc_eyes PRIVATE
 	"${QC_EYES_DIR}/StdAfx.h"

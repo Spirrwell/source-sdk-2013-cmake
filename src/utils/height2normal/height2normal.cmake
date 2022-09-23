@@ -18,6 +18,11 @@ set(
 
 add_executable(height2normal ${HEIGHT2NORMAL_SOURCE_FILES})
 
+set_target_properties(
+	height2normal PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	height2normal PRIVATE
 	"${SRCDIR}/utils/common"

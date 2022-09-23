@@ -56,6 +56,11 @@ set(
 
 add_executable(motionmapper ${MOTIONMAPPER_SOURCE_FILES})
 
+set_target_properties(
+	motionmapper PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	motionmapper PRIVATE
 	"${SRCDIR}/utils/common"

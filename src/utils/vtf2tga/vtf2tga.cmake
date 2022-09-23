@@ -28,6 +28,11 @@ set(
 
 add_executable(vtf2tga ${VTF2TGA_SOURCE_FILES})
 
+set_target_properties(
+	vtf2tga PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_link_libraries(
 	vtf2tga PRIVATE
 	"${LIBPUBLIC}/bitmap${STATIC_LIB_EXT}"

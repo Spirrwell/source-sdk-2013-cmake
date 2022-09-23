@@ -30,7 +30,13 @@ set(
 )
 
 add_library(serverplugin_empty MODULE ${SERVERPLUGIN_EMPTY_SOURCE_FILES})
-set_target_properties(serverplugin_empty PROPERTIES PREFIX "")
+
+set_target_properties(
+	serverplugin_empty
+	PROPERTIES
+	PREFIX ""
+	LIBRARY_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
 
 target_include_directories(
 	serverplugin_empty PRIVATE

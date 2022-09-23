@@ -21,6 +21,11 @@ set(
 
 add_executable(glview WIN32 ${GLVIEW_SOURCE_FILES})
 
+set_target_properties(
+	glview PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${GAMEDIR}/bin"
+)
+
 target_include_directories(
 	glview PRIVATE
 	"${SRCDIR}/utils/common"
