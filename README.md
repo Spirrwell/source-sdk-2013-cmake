@@ -11,8 +11,11 @@ If your folder structure for SDK2013 is different, you should only have to modif
 
 ## Compiler Support
 
+## General
+By default, this targets C++14 since modern VS defaults to C++14 anyway. 
+
 ### Windows
-By default, this targets C++14 since modern VS defaults to C++14 anyway. VS2019 and VS2022 are known to build, but this is untested with older versions.
+VS2019 and VS2022 are known to build, but this is untested with older versions.
 
 ### Linux
 GCC 5 or greater should also work fine. This repo should build out of the box with the Steam Runtime Soldier container. Scout will require a bit of tinkering to update CMake and switch to GCC 5 or higher.
