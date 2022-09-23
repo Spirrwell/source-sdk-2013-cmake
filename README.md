@@ -1,4 +1,4 @@
-# Source SDK 2013 MP - CMake
+# Source SDK 2013 - CMake
 This project ports the buildsystem from VPC to CMake.
 
 The layout of the CMake projects should be similar to that of VPC. Hopefully it should feel familiar even if you have no experience with CMake. The base scripts are in _cmake_scripts. Each project has its own corresponding .cmake file similar to VPC. 
