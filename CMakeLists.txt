@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
 
 if (APPLE)
-	# NOTE: You may need to pass this as a command line parameter for the Xcode generator -DCMAKE_OSX_ARCHITECTURES=i386
+	# NOTE: You will need to pass this as a command line parameter for the Xcode generator -DCMAKE_OSX_ARCHITECTURES=i386
+	# Also note only Xcode 9.4.1 and earlier support i386
 	set(CMAKE_OSX_ARCHITECTURES i386)
 	set(CMAKE_OSX_DEPLOYMENT_TARGET 10.9)
 	set(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym")

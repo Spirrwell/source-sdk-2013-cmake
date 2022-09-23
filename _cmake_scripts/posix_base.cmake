@@ -5,6 +5,17 @@ string(REPLACE "-O3" "-O2" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
 find_package(Threads REQUIRED)
 
+if (${IS_XCODE})
+	if (${CMAKE_SIZEOF_VOID_P} EQUAL 8)
+		message(
+			FATAL_ERROR
+			"  Source SDK 2013 only supports 32-bit generation\n"
+			"  Please add -DCMAKE_OSX_ARCHITECTURES=i386 for Xcode generation\n"
+			"  NOTE: Only Xcode 9.4.1 and earlier support i386"
+		)
+	endif()
+endif()
+
 add_compile_options(
 	-g
 	-m32
