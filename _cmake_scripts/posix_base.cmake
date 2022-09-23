@@ -26,6 +26,7 @@ add_compile_options(
 	-Usprintf
 	-Ustrncpy
 	-UPROTECTED_THINGS_ENABLE
+	$<${IS_LINUX}:-fabi-compat-version=2>
 )
 
 add_link_options(-m32)
@@ -46,10 +47,18 @@ add_compile_definitions(
 	$<${IS_OSX}:OVERRIDE_V_DEFINES>
 )
 
-if (${IS_LINUX} AND NOT ${DEDICATED})
+if (${IS_LINUX})
+	if (NOT ${DEDICATED})
+		list(
+			APPEND ADDITIONAL_LINK_OPTIONS_EXE
+			-Wl,--no-as-needed -ltcmalloc_minimal -Wl,--as-needed
+		)
+	endif()
+
+	# Helps us catch any linker errors from out of order linking or in general
 	list(
-		APPEND ADDITIONAL_LINK_OPTIONS_EXE
-		-Wl,--no-as-needed -ltcmalloc_minimal -Wl,--as-needed
+		APPEND ADDITIONAL_LINK_OPTIONS_DLL
+		-Wl,--no-undefined
 	)
 endif()
 

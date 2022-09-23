@@ -130,6 +130,10 @@ set(
 	"$<${IS_WINDOWS}:${SRCDIR}/common/xbox/xboxstubs.h>"
 )
 
+if (${IS_LINUX} AND CMAKE_C_COMPILER_VERSION GREATER 5)
+	list(APPEND TIER1_SOURCE_FILES "${TIER1_DIR}/math_proxy.cpp")
+endif()
+
 set_source_files_properties(
 	"$<${IS_WINDOWS}:${TIER1_DIR}/processor_detect.cpp>"
 	PROPERTIES

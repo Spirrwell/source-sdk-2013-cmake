@@ -1196,13 +1196,13 @@ function(target_use_client_base target EXCLUDE_SOURCES)
 		$<${IS_LINUX}:rt>
 		$<${IS_WINDOWS}:winmm>
 		"$<$<AND:${IS_WINDOWS},${BUILD_REPLAY}>:wsock32;Ws2_32>"
+		"${LIBPUBLIC}/particles${STATIC_LIB_EXT}"
 
 		"${LIBPUBLIC}/bitmap${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/choreoobjects${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/dmxloader${STATIC_LIB_EXT}"
 		mathlib
 		"${LIBPUBLIC}/matsys_controls${STATIC_LIB_EXT}"
-		"${LIBPUBLIC}/particles${STATIC_LIB_EXT}"
 		tier1
 		"${LIBPUBLIC}/tier2${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/tier3${STATIC_LIB_EXT}"

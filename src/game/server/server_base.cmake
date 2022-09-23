@@ -985,9 +985,9 @@ function(target_use_server_base target EXCLUDE_SOURCES)
 		$<${IS_WINDOWS}:winmm>
 
 		"${LIBPUBLIC}/choreoobjects${STATIC_LIB_EXT}"
+		"${LIBPUBLIC}/particles${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/dmxloader${STATIC_LIB_EXT}"
 		mathlib
-		"${LIBPUBLIC}/particles${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/tier2${STATIC_LIB_EXT}"
 		"${LIBPUBLIC}/tier3${STATIC_LIB_EXT}"
 		steam_api
