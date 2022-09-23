@@ -120,6 +120,7 @@ list(
 	$<$<CONFIG:Release>:${MSVC_LINK_OPTION_IGNORE_DEFAULTLIBS_RELEASE}>
 	$<$<CONFIG:Release>:/OPT:REF>
 	$<$<CONFIG:Release>:/OPT:ICF>
+	/MANIFEST:NO
 )
 
 list(
