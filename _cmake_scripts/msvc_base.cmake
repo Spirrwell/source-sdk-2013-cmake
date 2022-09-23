@@ -62,6 +62,9 @@ set(
 	# Set warning level
 	/W4
 
+	# Treat warnings as errors... someday
+	#/WX
+
 	# Don't Omit Frame Pointers
 	"$<${NOFPO}:/Oy->"
 
@@ -70,6 +73,7 @@ set(
 	/Zc:threadSafeInit-
 	/Zc:__cplusplus
 	/Zc:preprocessor
+	/Zc:inline
 
 	# We'll be permissive for now
 #	/permissive-
