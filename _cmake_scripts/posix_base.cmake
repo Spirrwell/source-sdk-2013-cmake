@@ -1,8 +1,12 @@
 # posix_base.cmake
 
+string(REPLACE "-O3" "-O2" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
+string(REPLACE "-O3" "-O2" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
 find_package(Threads REQUIRED)
 
 add_compile_options(
+	-g
 	-m32
 	$<$<COMPILE_LANGUAGE:CXX>:-fpermissive>
 	-fdiagnostics-color
