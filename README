@@ -1,43 +1,33 @@
-               SOURCE 1 SDK LICENSE
+# Source SDK 2013 MP - CMake
+This project ports the buildsystem from VPC to CMake.
 
-Source SDK Copyright(c) Valve Corp.  
+The layout of the CMake projects should be similar to that of VPC. Hopefully it should feel familiar even if you have no experience with CMake. The base scripts are in _cmake_scripts. Each project has its own corresponding .cmake file similar to VPC. 
 
-THIS DOCUMENT DESCRIBES A CONTRACT BETWEEN YOU AND VALVE 
-CORPORATION ("Valve").  PLEASE READ IT BEFORE DOWNLOADING OR USING 
-THE SOURCE ENGINE SDK ("SDK"). BY DOWNLOADING AND/OR USING THE 
-SOURCE ENGINE SDK YOU ACCEPT THIS LICENSE. IF YOU DO NOT AGREE TO 
-THE TERMS OF THIS LICENSE PLEASE DON’T DOWNLOAD OR USE THE SDK.  
+Example: src/tier1/tier1.vpc -> src/tier1/tier1.cmake
 
-  You may, free of charge, download and use the SDK to develop a modified Valve game 
-running on the Source engine.  You may distribute your modified Valve game in source and 
-object code form, but only for free. Terms of use for Valve games are found in the Steam 
-Subscriber Agreement located here: http://store.steampowered.com/subscriber_agreement/ 
+The batch and shell scripts to generate projects now call CMake instead and place project files in a created "build" directory. If you're comfortable with CMake, you don't have to rely on these at all and can use your favorite IDE's CMake integration.
 
-  You may copy, modify, and distribute the SDK and any modifications you make to the 
-SDK in source and object code form, but only for free.  Any distribution of this SDK must 
-include this LICENSE file and thirdpartylegalnotices.txt.  
- 
-  Any distribution of the SDK or a substantial portion of the SDK must include the above 
-copyright notice and the following: 
+If your folder structure for SDK2013 is different, you should only have to modify SRCDIR and GAMEDIR in the CMakeLists.txt file if you need to move things around.
 
-    DISCLAIMER OF WARRANTIES.  THE SOURCE SDK AND ANY 
-    OTHER MATERIAL DOWNLOADED BY LICENSEE IS PROVIDED 
-    "AS IS".  VALVE AND ITS SUPPLIERS DISCLAIM ALL 
-    WARRANTIES WITH RESPECT TO THE SDK, EITHER EXPRESS 
-    OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED 
-    WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, 
-    TITLE AND FITNESS FOR A PARTICULAR PURPOSE.  
+## Compiler Support
 
-    LIMITATION OF LIABILITY.  IN NO EVENT SHALL VALVE OR 
-    ITS SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, 
-    INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER 
-    (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF 
-    BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF 
-    BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) 
-    ARISING OUT OF THE USE OF OR INABILITY TO USE THE 
-    ENGINE AND/OR THE SDK, EVEN IF VALVE HAS BEEN 
-    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  
- 
-       
-If you would like to use the SDK for a commercial purpose, please contact Valve at 
-sourceengine@valvesoftware.com.
+### Windows
+By default, this targets C++14 since modern VS defaults to C++14 anyway. VS2019 and VS2022 are known to build, but this is untested with older versions.
+
+### Linux
+GCC 5 or greater should also work fine. This repo should build out of the box with the Steam Runtime Soldier container. Scout will require a bit of tinkering to update CMake and switch to GCC 5 or higher.
+
+### macOS
+This should also build on macOS. Just note that for Xcode, only versions 9.4.1 and earlier support the i386 architecture. If building from a different IDE, or command line, you shouldn't have to worry about this. In fact, the project generation scripts should output Makefiles by default.
+
+Building with macOS 10.13.6 (High Sierra) is recommended. Please check this project out if you're interested in a macOS container: https://github.com/sickcodes/Docker-OSX
+
+## Credits
+
+I'd like to thank JJL772, OzxyBox, and those behind the Source-PlusPlus repo which includes Joshua Ashton, SCell555, and Gocnak.
+
+The modified particles.lib that allows modern VS to build came from Source-PlusPlus: https://github.com/Joshua-Ashton/Source-PlusPlus
+
+JJL772 has a repo which helped me with the ABI difference issues on newer GCC versions: https://github.com/JJL772/source-sdk-2013
+
+OzxyBox has a Source SDK repo which supports VS2022 which I referenced for help a few times. This CMake port is not NEARLY as extensive as the changes here.
