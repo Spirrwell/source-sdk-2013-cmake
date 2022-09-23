@@ -15,25 +15,6 @@
 #include "tier1/strtools.h"
 #include "limits.h"
 
-#if defined( OSX )
-#define wcsdup wcsdup_osx
-inline wchar_t *wcsdup_osx(const wchar_t *pString)
-{
-	wchar_t *pMemory;
-
-	if (!pString)
-		return NULL;
-
-	size_t len = (wcslen(pString) + 1);
-	if ((pMemory = (wchar_t *)malloc(len * sizeof(wchar_t))) != NULL)
-	{
-		return wcscpy( pMemory, pString );
-	}
-
-	return NULL;
-}
-#endif
-
 //-----------------------------------------------------------------------------
 // Base class, containing simple memory management
 //-----------------------------------------------------------------------------
