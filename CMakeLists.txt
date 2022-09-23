@@ -60,6 +60,7 @@ include("_cmake_scripts/pch_skip.cmake")
 include("_cmake_scripts/platform_dirs.cmake")
 include("_cmake_scripts/base.cmake")
 include("_cmake_scripts/video_base.cmake")
+include("_cmake_scripts/postbuild.cmake")
 
 set(LIBPUBLIC "${SRCDIR}/lib/public${PLATSUBDIR}")
 set(LIBCOMMON "${SRCDIR}/lib/common${PLATSUBDIR}")
@@ -199,6 +200,9 @@ foreach(target ${ALL_TARGETS})
 		target_link_options(${target} PRIVATE ${ADDITIONAL_LINK_OPTIONS_EXE})
 		target_compile_definitions(${target} PRIVATE MEMOVERRIDE_MODULE=$<TARGET_NAME_IF_EXISTS:${target}>)
 		add_compile_definitions_filtered(${target} ADDITIONAL_COMPILE_DEFINITIONS_EXE)
+
+		# Only applies to Linux and OSX
+		target_strip_symbols(${target})
 	elseif((${target_type} STREQUAL "SHARED_LIBRARY") OR (${target_type} STREQUAL "MODULE_LIBRARY"))
 		add_compile_options_filtered(${target} ADDITIONAL_COMPILE_OPTIONS_DLL)
 		add_libraries_filtered(${target} ADDITIONAL_LINK_LIBRARIES_DLL)
@@ -206,6 +210,9 @@ foreach(target ${ALL_TARGETS})
 		target_link_options(${target} PRIVATE ${ADDITIONAL_LINK_OPTIONS_DLL})
 		target_compile_definitions(${target} PRIVATE MEMOVERRIDE_MODULE=$<TARGET_NAME_IF_EXISTS:${target}> DLLNAME=$<TARGET_NAME_IF_EXISTS:${target}>)
 		add_compile_definitions_filtered(${target} ADDITIONAL_COMPILE_DEFINITIONS_DLL)
+
+		# Only applies to Linux and OSX
+		target_strip_symbols(${target})
 	elseif(${target_type} STREQUAL "STATIC_LIBRARY")
 		add_compile_options_filtered(${target} ADDITIONAL_COMPILE_OPTIONS_LIB)
 		add_sources_filtered(${target} ADDITIONAL_SOURCES_LIB)
