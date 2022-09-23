@@ -35,6 +35,15 @@ set_property(CACHE BUILD_GROUP PROPERTY STRINGS
 	"shaders"
 )
 
+# Which game are we building?
+set(BUILD_GAME "hl2" CACHE STRING "Build Game")
+
+set_property(
+	CACHE BUILD_GAME PROPERTY STRINGS
+	"hl2"
+	"episodic"
+)
+
 set(SRCDIR "${CMAKE_CURRENT_LIST_DIR}/src")
 set(GAMEDIR "${CMAKE_CURRENT_LIST_DIR}/game")
 set(THIRDPARTYDIR "${SRCDIR}/thirdparty")
