@@ -11,6 +11,10 @@ endif()
 
 project(SourceSDK2013)
 
+if (NOT DEFINED CMAKE_BULD_TYPE)
+	set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build type" FORCE)
+endif()
+
 # Modern VS versions default to C++14 anyway, so make it consistent
 # But in the future we may want so support C++20
 set(CMAKE_CXX_STANDARD 14)
