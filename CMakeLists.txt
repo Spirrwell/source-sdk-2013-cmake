@@ -11,7 +11,9 @@ endif()
 
 project(SourceSDK2013)
 
-if (NOT DEFINED CMAKE_BULD_TYPE)
+# For some reason, checking if CMAKE_BUILD_TYPE is defined is unreliable
+# So simply check if it's empty instead
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
 	set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build type" FORCE)
 endif()
 
