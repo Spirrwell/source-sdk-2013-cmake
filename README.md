@@ -21,7 +21,7 @@ VS2019 and VS2022 are known to build, but this is untested with older versions.
 GCC 5 or greater should also work fine. This repo should build out of the box with the Steam Runtime Soldier container. Scout will require a bit of tinkering to update CMake and switch to GCC 5 or higher.
 
 ### macOS
-This should also build on macOS. Just note that for Xcode, only versions 9.4.1 and earlier support the i386 architecture. If building from a different IDE, or command line, you shouldn't have to worry about this. In fact, the project generation scripts should output Makefiles by default.
+This should also build on macOS. Just note that for Xcode, only versions 9.4.1 and earlier support the i386 architecture. If building from a different IDE, or command line, you might not have to worry about this depending on your setup. The project generation scripts should output Makefiles by default.
 
 Building with macOS 10.13.6 (High Sierra) is recommended. Please check this project out if you're interested in a macOS container: https://github.com/sickcodes/Docker-OSX
 
