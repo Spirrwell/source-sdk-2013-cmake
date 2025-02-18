@@ -1,6 +1,9 @@
 # Files to ignore when considering what GIT should commit.
 
-# Visual Studio 
+# CLion
+.idea
+
+# Visual Studio
 *.suo
 *.user
 *.sln.docstates
